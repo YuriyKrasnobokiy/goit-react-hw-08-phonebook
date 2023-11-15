@@ -13,3 +13,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  /* background-color: lightgrey; */
+  text-align: center;
+}
+
+button {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightcoral;
+  &:hover {
+    background-color: lightgreen;
+  }
+  &:active {
+    background-color: lightblue;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
