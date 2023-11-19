@@ -9,6 +9,10 @@ export const setToken = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+export const unsetToken = token => {
+  instance.defaults.headers.common.Authorization = '';
+};
+
 export const register = createAsyncThunk(
   'auth/register',
   async (userData, thunkAPI) => {
@@ -44,8 +48,7 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const { data } = await instance.post('/users/logout');
-    setToken('');
-    setToken(data.token);
+    unsetToken();
 
     return data;
   } catch (e) {

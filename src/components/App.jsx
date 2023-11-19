@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+// import { fetchContacts } from 'redux/operations';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { Layout } from './Layout/Layout';
@@ -11,10 +11,6 @@ import { refresh } from 'redux/auth/authOperations';
 
 export const App = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   useEffect(() => {
     dispatch(refresh());
