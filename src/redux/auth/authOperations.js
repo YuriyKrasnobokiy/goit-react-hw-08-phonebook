@@ -32,6 +32,7 @@ export const login = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const { data } = await instance.post('/users/login', userData);
+
       setToken(data.token);
       return data;
     } catch (e) {
@@ -43,6 +44,20 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const { data } = await instance.post('/users/logout');
+    setToken('');
+    setToken(data.token);
+
+    return data;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
+
+export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+  try {
+    const token = thunkAPI.getState().auth.token;
+    setToken(token);
+    const { data } = await instance.get('/users/current');
     return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);

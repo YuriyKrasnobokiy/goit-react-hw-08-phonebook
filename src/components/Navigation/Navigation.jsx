@@ -1,12 +1,10 @@
-// import { useDispatch, useSelector } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-// import { logout } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const dispatch = useDispatch();
+
   return (
     <nav>
       <NavLink to="/">Home</NavLink>

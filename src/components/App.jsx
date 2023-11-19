@@ -7,14 +7,17 @@ import { Layout } from './Layout/Layout';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Contacts from './pages/Contacts/Contacts';
-// import { selectIsRefreshing } from 'redux/auth/authSelectors';
+import { refresh } from 'redux/auth/authOperations';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const { isRefreshing } = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(fetchContacts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(refresh());
   }, [dispatch]);
 
   return (
