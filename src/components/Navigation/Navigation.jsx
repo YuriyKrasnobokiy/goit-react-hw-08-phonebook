@@ -12,18 +12,3 @@ export const Navigation = () => {
     </nav>
   );
 };
-
-// return (
-//   <nav>
-//     <NavLink to="/">Home</NavLink>
-//     {isLoggedIn && (
-//       <>
-//         <NavLink to="/contacts">Contacts</NavLink>
-//         <button type="button" onClick={() => dispatch(logout())}>
-//           Logout
-//         </button>
-//       </>
-//     )}
-//   </nav>
-// );
-// };

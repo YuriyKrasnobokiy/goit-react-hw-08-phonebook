@@ -2,8 +2,8 @@ import React from 'react';
 import { ContactsLi, ContactsPhonelist } from './ContactsList.Styled';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectVisibleContacts } from 'redux/selectors';
-import { deleteContact } from 'redux/operations';
+import { selectVisibleContacts } from 'redux/contacts/selectors';
+import { deleteContact } from 'redux/contacts/operations';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts);

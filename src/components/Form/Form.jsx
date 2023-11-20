@@ -4,8 +4,8 @@ import { FormBtn, FormLabel, FormPhoneBook } from './Form.Styled';
 import { ErrorMessage, Field, Formik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 const schema = yup.object().shape({
   name: yup.string().min(2).required('Required'),
