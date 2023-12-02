@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { Navigation } from 'components/Navigation/Navigation';
 import { UserMenu } from 'components/UserMenu/UserMenu';
@@ -9,8 +10,18 @@ export const AppBar = () => {
 
   return (
     <header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      <Box
+        component="div"
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'baseline',
+          padding: '10px 0',
+        }}
+      >
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </Box>
     </header>
   );
 };

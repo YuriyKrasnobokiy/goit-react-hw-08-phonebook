@@ -1,3 +1,4 @@
+import { Button, Container, FormControl, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 
@@ -17,26 +18,125 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password:
-        <input
+    <Container
+      component="div"
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: '20px 30px',
+      }}
+    >
+      <FormControl
+        component="form"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '10px',
+          width: '400px',
+        }}
+        onSubmit={handleSubmit}
+      >
+        <TextField
+          variant="outlined"
+          label="Username"
+          type="text"
+          name="name"
+          required
+          margin="normal"
+          size="normal"
+          color="primary"
+          sx={{
+            width: '100%',
+            '& .MuiInputLabel-outlined': {
+              color: 'primary.main', // колір placeholder
+            },
+
+            '& .MuiOutlinedInput-root': {
+              '&:hover fieldset': {
+                borderColor: 'primary.hover', // Змініть на бажаний колір для ховеру
+              },
+              '& fieldset': {
+                borderColor: 'primary.main',
+                transition: 'border-color 250ms ease',
+              },
+            },
+
+            '& .MuiOutlinedInput-input': {
+              color: 'primary.main',
+            },
+          }}
+        />
+        <TextField
+          variant="outlined"
+          label="Email"
+          type="email"
+          name="email"
+          required
+          margin="normal"
+          size="normal"
+          sx={{
+            width: '100%',
+            '& .MuiInputLabel-outlined': {
+              color: 'primary.main', // колір placeholder
+            },
+
+            '& .MuiOutlinedInput-root': {
+              '&:hover fieldset': {
+                borderColor: 'primary.hover', // Змініть на бажаний колір для ховеру
+              },
+              '& fieldset': {
+                borderColor: 'primary.main',
+                transition: 'border-color 250ms ease',
+              },
+            },
+
+            '& .MuiOutlinedInput-input': {
+              color: 'primary.main',
+            },
+          }}
+        />
+        <TextField
+          variant="outlined"
+          label="Password"
           type="password"
           name="password"
           minLength="7"
           autoComplete="on"
           required
+          margin="normal"
+          color="primary"
+          sx={{
+            width: '100%',
+
+            '& .MuiInputLabel-outlined': {
+              color: 'primary.main', // колір placeholder
+            },
+
+            '& .MuiOutlinedInput-root': {
+              '&:hover fieldset': {
+                borderColor: 'primary.hover', // Змініть на бажаний колір для ховеру
+              },
+              '& fieldset': {
+                borderColor: 'primary.main',
+                transition: 'border-color 250ms ease',
+              },
+            },
+
+            '& .MuiOutlinedInput-input': {
+              color: 'primary.main',
+            },
+          }}
         />
-      </label>
-      <button type="submit">Register now!</button>
-    </form>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={{ marginTop: '10px' }}
+        >
+          Register now!
+        </Button>
+      </FormControl>
+    </Container>
   );
 };

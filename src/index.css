@@ -7,6 +7,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #101418;
+  /* background-color: #2f3032; */
+  color: aliceblue;
 }
 
 code {
@@ -38,13 +41,13 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: lightcoral;
+  /* background-color: lightcoral;
   &:hover {
     background-color: lightgreen;
   }
   &:active {
     background-color: lightblue;
-  }
+  } */
 }
 
 img {

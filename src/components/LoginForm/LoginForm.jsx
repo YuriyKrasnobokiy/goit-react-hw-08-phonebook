@@ -1,6 +1,7 @@
 // import { useDispatch } from 'react-redux';
 // import { logIn } from 'redux/auth/operations';
 
+import { Button, Container, FormControl, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
 
@@ -17,22 +18,97 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email:
-        <input type="email" name="email" required />
-      </label>
-      <label>
-        Password:
-        <input
+    <Container
+      component="div"
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: '20px 30px',
+      }}
+    >
+      <FormControl
+        component="form"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '10px',
+          width: '400px',
+        }}
+        onSubmit={handleSubmit}
+      >
+        <TextField
+          variant="outlined"
+          label="Email"
+          type="email"
+          name="email"
+          required
+          margin="normal"
+          size="normal"
+          color="primary"
+          sx={{
+            width: '100%',
+            '& .MuiInputLabel-outlined': {
+              color: 'primary.main', // колір placeholder
+            },
+
+            '& .MuiOutlinedInput-root': {
+              '&.Mui-focused, &.Mui-autocomplete': {
+                backgroundColor: 'transparent !important', // колір фону при фокусі та автозаповненні
+              },
+              '&:hover fieldset': {
+                borderColor: 'primary.hover', // колір для ховеру
+              },
+              '& fieldset': {
+                borderColor: 'primary.main',
+                transition: 'border-color 250ms ease',
+              },
+            },
+
+            '& .MuiOutlinedInput-input': {
+              color: 'primary.main',
+            },
+          }}
+        />
+        <TextField
+          variant="outlined"
+          label="Password"
           type="password"
           name="password"
           minLength="7"
           autoComplete="on"
           required
+          margin="normal"
+          sx={{
+            width: '100%',
+            '& .MuiInputLabel-outlined': {
+              color: 'primary.main', // колір placeholder
+            },
+
+            '& .MuiOutlinedInput-root': {
+              '&:hover fieldset': {
+                borderColor: 'primary.hover', // Змініть на бажаний колір для ховеру
+              },
+              '& fieldset': {
+                borderColor: 'primary.main',
+                transition: 'border-color 250ms ease',
+              },
+            },
+
+            '& .MuiOutlinedInput-input': {
+              color: 'primary.main',
+            },
+          }}
         />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={{ marginTop: '10px' }}
+        >
+          Log In
+        </Button>
+      </FormControl>
+    </Container>
   );
 };
