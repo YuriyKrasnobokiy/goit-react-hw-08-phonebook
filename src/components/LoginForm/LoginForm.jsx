@@ -44,6 +44,7 @@ export const LoginForm = () => {
           name="email"
           required
           margin="normal"
+          autoComplete="off"
           size="normal"
           color="primary"
           sx={{
@@ -54,7 +55,7 @@ export const LoginForm = () => {
 
             '& .MuiOutlinedInput-root': {
               '&.Mui-focused, &.Mui-autocomplete': {
-                backgroundColor: 'transparent !important', // колір фону при фокусі та автозаповненні
+                background: 'primary.bgcolor !important', // колір фону при фокусі та автозаповненні
               },
               '&:hover fieldset': {
                 borderColor: 'primary.hover', // колір для ховеру
@@ -87,7 +88,7 @@ export const LoginForm = () => {
 
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: 'primary.hover', // Змініть на бажаний колір для ховеру
+                borderColor: 'primary.hover', // колір для ховеру
               },
               '& fieldset': {
                 borderColor: 'primary.main',

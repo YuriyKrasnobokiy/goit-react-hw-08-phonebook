@@ -16,7 +16,7 @@ export const AppBar = () => {
           display: 'flex',
           justifyContent: 'space-around',
           alignItems: 'baseline',
-          padding: '10px 0',
+          padding: '10px',
         }}
       >
         <Navigation />

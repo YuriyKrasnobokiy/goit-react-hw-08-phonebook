@@ -1,11 +1,12 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
-import { FormBtn, FormLabel, FormPhoneBook } from './Form.Styled';
-import { ErrorMessage, Field, Formik } from 'formik';
+import { FormInput, FormLabel, FormPhoneBook } from './Form.Styled';
+import { ErrorMessage, Formik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
+import { Button, Container } from '@mui/material';
 
 const schema = yup.object().shape({
   name: yup.string().min(2).required('Required'),
@@ -38,27 +39,46 @@ export const AddForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        number: '',
+    <Container
+      component="div"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: '20px',
       }}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
     >
-      <FormPhoneBook>
-        <FormLabel>
-          Name
-          <Field type="text" name="name" />
-          <ErrorMessage component="div" name="name" />
-        </FormLabel>
-        <FormLabel>
-          Number
-          <Field type="text" name="number" />
-          <ErrorMessage component="div" name="number" />
-        </FormLabel>
-        <FormBtn type="submit">Add contact</FormBtn>
-      </FormPhoneBook>
-    </Formik>
+      <h2>Add contacts</h2>
+      <Formik
+        initialValues={{
+          name: '',
+          number: '',
+        }}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <FormPhoneBook>
+          <FormLabel>
+            Name
+            <FormInput type="text" name="name" />
+            <ErrorMessage component="div" name="name" />
+          </FormLabel>
+          <FormLabel>
+            Number
+            <FormInput type="text" name="number" />
+            <ErrorMessage component="div" name="number" />
+          </FormLabel>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ marginTop: '10px' }}
+          >
+            Add contact
+          </Button>
+        </FormPhoneBook>
+      </Formik>
+    </Container>
   );
 };

@@ -4,6 +4,13 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
 import { deleteContact } from 'redux/contacts/operations';
+import {
+  ContactsH,
+  ContactsLi,
+  ContactsP,
+  ContactsPhonelist,
+} from './ContactsList.Styled';
+import { Button } from '@mui/material';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts);
@@ -15,18 +22,23 @@ export const ContactsList = () => {
 
   return (
     <>
-      <ul>
+      <ContactsPhonelist>
+        <ContactsH>Your contacts</ContactsH>
         {contacts.map(({ id, name, number }) => (
-          <li key={id}>
-            <p>{name}</p>
-            <p>{number}</p>
-            <button onClick={() => handleDeleteContact(id)} type="button">
+          <ContactsLi key={id}>
+            <ContactsP>{name}</ContactsP>
+            <ContactsP>{number}</ContactsP>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => handleDeleteContact(id)}
+            >
               Delete
               <RiDeleteBin6Line size={18} />
-            </button>
-          </li>
+            </Button>
+          </ContactsLi>
         ))}
-      </ul>
+      </ContactsPhonelist>
     </>
   );
 };

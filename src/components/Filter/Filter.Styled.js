@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-export const FilterLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-`;
+// export const FilterLabel = styled.label`
+//   display: flex;
+//   flex-direction: column;
+// `;

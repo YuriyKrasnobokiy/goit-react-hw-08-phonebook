@@ -14,7 +14,6 @@ const Contacts = () => {
 
   return (
     <main>
-      <h2>Contacts</h2>
       <AddForm />
       <Filter />
       <ContactsList />

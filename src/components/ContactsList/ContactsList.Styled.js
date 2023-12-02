@@ -1,15 +1,28 @@
 import styled from 'styled-components';
 
 export const ContactsPhonelist = styled.ul`
+  padding: 24px;
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px;
-  /* background-color: lightcyan; */
-  align-items: center;
-  justify-items: center;
 `;
 
 export const ContactsLi = styled.li`
-  text-align: center;
+  padding: 20px;
+  border: 1px solid #1976d2;
+  width: 60%;
+  margin-bottom: 10px;
+  transition: border-color 300ms ease;
+  &:focus {
+    border-color: #154575;
+  }
+  &:hover {
+    border-color: #154575;
+  }
+`;
+
+export const ContactsP = styled.p`
+  margin-bottom: 12px;
+`;
+
+export const ContactsH = styled.h2`
+  margin-bottom: 12px;
 `;

@@ -14,6 +14,7 @@ const theme = createTheme({
       main: '#1976d2',
       hover: '#154575',
       bgcolor: '#101418',
+      delete: '#C01048',
     },
     secondary: {
       main: '#154575',
