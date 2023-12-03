@@ -71,7 +71,7 @@ export const RegisterForm = () => {
         />
         <TextField
           variant="outlined"
-          label="Email"
+          label="Email (Example@mail.com)"
           type="email"
           name="email"
           required
