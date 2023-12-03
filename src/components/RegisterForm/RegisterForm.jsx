@@ -51,12 +51,12 @@ export const RegisterForm = () => {
           sx={{
             width: '100%',
             '& .MuiInputLabel-outlined': {
-              color: 'primary.main', // колір placeholder
+              color: 'primary.main',
             },
 
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: 'primary.hover', // колір для ховеру
+                borderColor: 'primary.hover',
               },
               '& fieldset': {
                 borderColor: 'primary.main',
@@ -80,12 +80,12 @@ export const RegisterForm = () => {
           sx={{
             width: '100%',
             '& .MuiInputLabel-outlined': {
-              color: 'primary.main', // колір placeholder
+              color: 'primary.main',
             },
 
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: 'primary.hover', // колір для ховеру
+                borderColor: 'primary.hover',
               },
               '& fieldset': {
                 borderColor: 'primary.main',
@@ -112,12 +112,12 @@ export const RegisterForm = () => {
             width: '100%',
 
             '& .MuiInputLabel-outlined': {
-              color: 'primary.main', // колір placeholder
+              color: 'primary.main',
             },
 
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: 'primary.hover', // колір для ховеру
+                borderColor: 'primary.hover',
               },
               '& fieldset': {
                 borderColor: 'primary.main',

@@ -15,7 +15,7 @@ export const AppBar = () => {
         sx={{
           display: 'flex',
           justifyContent: 'space-around',
-          alignItems: 'baseline',
+          alignItems: 'center',
           padding: '10px',
         }}
       >

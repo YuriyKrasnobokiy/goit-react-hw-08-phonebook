@@ -1,6 +1,3 @@
-// import { useDispatch } from 'react-redux';
-// import { logIn } from 'redux/auth/operations';
-
 import { Button, Container, FormControl, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
@@ -50,15 +47,14 @@ export const LoginForm = () => {
           sx={{
             width: '100%',
             '& .MuiInputLabel-outlined': {
-              color: 'primary.main', // колір placeholder
+              // колір placeholder
+              color: 'primary.main',
             },
 
             '& .MuiOutlinedInput-root': {
-              '&.Mui-focused, &.Mui-autocomplete': {
-                background: 'primary.bgcolor !important', // колір фону при фокусі та автозаповненні
-              },
               '&:hover fieldset': {
-                borderColor: 'primary.hover', // колір для ховеру
+                // колір для ховеру
+                borderColor: 'primary.hover',
               },
               '& fieldset': {
                 borderColor: 'primary.main',
@@ -83,12 +79,12 @@ export const LoginForm = () => {
           sx={{
             width: '100%',
             '& .MuiInputLabel-outlined': {
-              color: 'primary.main', // колір placeholder
+              color: 'primary.main',
             },
 
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: 'primary.hover', // колір для ховеру
+                borderColor: 'primary.hover',
               },
               '& fieldset': {
                 borderColor: 'primary.main',
