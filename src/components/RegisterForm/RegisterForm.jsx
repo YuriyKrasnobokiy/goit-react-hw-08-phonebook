@@ -1,9 +1,31 @@
 import { Button, Container, FormControl, TextField } from '@mui/material';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  const validateEmail = input => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailRegex.test(input)) {
+      setError('');
+      return true;
+    } else {
+      setError('Invalid email.');
+      return false;
+    }
+  };
+
+  const handleEmailChange = e => {
+    const inputValue = e.target.value;
+    setEmail(inputValue);
+    validateEmail(inputValue);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -71,12 +93,18 @@ export const RegisterForm = () => {
         />
         <TextField
           variant="outlined"
-          label="Email (Example@mail.com)"
+          label="Email"
           type="email"
           name="email"
           required
           margin="normal"
           size="normal"
+          placeholder="Example@mail.com"
+          autoComplete="off"
+          value={email}
+          onChange={handleEmailChange}
+          error={Boolean(error)}
+          helperText={error}
           sx={{
             width: '100%',
             '& .MuiInputLabel-outlined': {
