@@ -70,6 +70,7 @@ export const RegisterForm = () => {
           autoComplete="on"
           size="normal"
           color="primary"
+          placeholder="Bob"
           sx={{
             width: '100%',
             '& .MuiInputLabel-outlined': {
