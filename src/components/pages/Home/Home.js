@@ -9,10 +9,10 @@ export const Home = () => {
         display: 'flex',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '20px 30px',
+        padding: '200px 30px',
       }}
     >
-      <h1>Welcome on the start page 😊</h1>
+      <h1>Welcome to the start page of Phonebook app</h1>
     </Container>
   );
 };
