@@ -1,13 +1,27 @@
-import { Button, Container, FormControl, TextField } from '@mui/material';
+import {
+  Button,
+  Container,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  TextField,
+} from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const validateEmail = input => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -130,13 +144,42 @@ export const RegisterForm = () => {
         <TextField
           variant="outlined"
           label="Password"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           name="password"
           minLength="7"
           autoComplete="on"
           required
           margin="normal"
           color="primary"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={handleTogglePasswordVisibility}>
+                  {showPassword ? (
+                    <VisibilityIcon
+                      sx={{
+                        color: 'primary.main',
+                        transition: 'color 250ms ease',
+                        '&:hover': {
+                          color: 'primary.hover',
+                        },
+                      }}
+                    />
+                  ) : (
+                    <VisibilityOffIcon
+                      sx={{
+                        color: 'primary.main',
+                        transition: 'color 250ms ease',
+                        '&:hover': {
+                          color: 'primary.hover',
+                        },
+                      }}
+                    />
+                  )}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
           sx={{
             width: '100%',
 
@@ -159,6 +202,7 @@ export const RegisterForm = () => {
             },
           }}
         />
+
         <Button
           type="submit"
           variant="contained"
