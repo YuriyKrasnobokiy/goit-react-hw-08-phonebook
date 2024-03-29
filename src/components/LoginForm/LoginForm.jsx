@@ -1,18 +1,31 @@
-import { Button, Container, FormControl, TextField } from '@mui/material';
+import {
+  Button,
+  Container,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  TextField,
+} from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import emailRegexp from 'emailRegex/emailRegex';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
-  const validateEmail = input => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-    if (emailRegex.test(input)) {
+  const validateEmail = input => {
+    if (emailRegexp.test(input)) {
       setError('');
       return true;
     } else {
@@ -97,14 +110,45 @@ export const LoginForm = () => {
         <TextField
           variant="outlined"
           label="Password"
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           name="password"
           minLength="7"
           autoComplete="on"
           required
           margin="normal"
+          color="primary"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={handleTogglePasswordVisibility}>
+                  {showPassword ? (
+                    <VisibilityIcon
+                      sx={{
+                        color: 'primary.main',
+                        transition: 'color 250ms ease',
+                        '&:hover': {
+                          color: 'primary.hover',
+                        },
+                      }}
+                    />
+                  ) : (
+                    <VisibilityOffIcon
+                      sx={{
+                        color: 'primary.main',
+                        transition: 'color 250ms ease',
+                        '&:hover': {
+                          color: 'primary.hover',
+                        },
+                      }}
+                    />
+                  )}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
           sx={{
             width: '100%',
+
             '& .MuiInputLabel-outlined': {
               color: 'primary.main',
             },

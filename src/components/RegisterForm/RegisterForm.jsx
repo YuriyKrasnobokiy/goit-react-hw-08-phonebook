@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import emailRegexp from 'emailRegex/emailRegex';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -24,9 +25,7 @@ export const RegisterForm = () => {
   };
 
   const validateEmail = input => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailRegex.test(input)) {
+    if (emailRegexp.test(input)) {
       setError('');
       return true;
     } else {
